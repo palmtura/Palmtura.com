@@ -11,7 +11,10 @@ export default function Page() {
         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-blue-600/30 blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-purple-700/30 blur-[120px]" />
         {/* Grid overlay */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+')] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] opacity-50" />
+        <div 
+          className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] opacity-50"
+          style={{ backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+")` }}
+        />
       </div>
 
       {/* Decorative lightning/energy streaks (fixed) */}
@@ -119,6 +122,55 @@ export default function Page() {
             delay={0.3}
           />
         </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="relative z-10 flex flex-col items-center px-4 py-24 w-full max-w-4xl mx-auto">
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, margin: "-100px" }}
+           transition={{ duration: 1 }}
+           className="text-center mb-12"
+        >
+          <div className="mb-6 flex justify-center">
+            <div className="px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-[10px] font-bold tracking-[0.2em] uppercase">
+              Get in Touch
+            </div>
+          </div>
+          <h2 className="font-space text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-200 to-purple-300 pb-2">
+            Start a Conversation
+          </h2>
+          <p className="mt-6 text-indigo-100/60 text-lg max-w-xl mx-auto font-light">
+            Ready to elevate your digital presence? Let's discuss your project and vision.
+          </p>
+        </motion.div>
+
+        <motion.form 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full backdrop-blur-2xl bg-white/[0.02] border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col gap-6"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="name" className="text-xs font-bold tracking-widest text-white/50 uppercase ml-1">Name</label>
+              <input type="text" id="name" placeholder="John Doe" className="px-4 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-white placeholder:text-white/20" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="text-xs font-bold tracking-widest text-white/50 uppercase ml-1">Email</label>
+              <input type="email" id="email" placeholder="john@example.com" className="px-4 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-white placeholder:text-white/20" />
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="message" className="text-xs font-bold tracking-widest text-white/50 uppercase ml-1">Project Details</label>
+            <textarea id="message" rows={4} placeholder="Tell us about your vision..." className="px-4 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-white placeholder:text-white/20 resize-none"></textarea>
+          </div>
+          <button type="button" className="mt-4 px-8 py-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-sm font-bold tracking-widest uppercase shadow-lg shadow-blue-600/20 hover:shadow-cyan-500/40 hover:scale-[1.02] transition-all opacity-90 hover:opacity-100">
+            Submit Inquiry
+          </button>
+        </motion.form>
       </section>
       
       {/* Footer */}
